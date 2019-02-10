@@ -1,0 +1,6 @@
+# Idea data
+.idea
+*.iml
+
+# Output
+out

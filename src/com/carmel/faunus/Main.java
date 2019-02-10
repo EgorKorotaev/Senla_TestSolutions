@@ -10,6 +10,7 @@ import com.carmel.faunus.Solution6.NumberTerminator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -42,14 +43,10 @@ public class Main {
     private static void solution4() {
         System.out.print("4: Enter four boolean values (true or false) separated by space: ");
 
-        String[] valueStrings = inputString().trim().split(MULTIPLE_SPACES_PATTERN);
-        boolean[] arr = new boolean[valueStrings.length];
+        List<Boolean> list = Arrays.stream(inputString().trim().split(MULTIPLE_SPACES_PATTERN))
+                .map(Boolean::parseBoolean).collect(Collectors.toList());
 
-        for (int i = 0; i < valueStrings.length; i++) {
-            arr[i] = Boolean.parseBoolean(valueStrings[i]);
-        }
-
-        System.out.println(BooleanCounter.twoOfFour(arr) ? "True" : "");
+        System.out.println(BooleanCounter.twoOfFour(list) ? "True" : "");
     }
 
     private static void solution3() {

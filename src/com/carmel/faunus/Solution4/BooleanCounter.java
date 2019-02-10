@@ -1,26 +1,23 @@
 package com.carmel.faunus.Solution4;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class BooleanCounter {
     /**
      * True, if exactly two of the four truths
      *
-     * @param arr array of boolean values
+     * @param bools array of boolean values
      * @return result
      */
-    public static boolean twoOfFour(boolean... arr) {
+    public static boolean twoOfFour(List<Boolean> bools) {
         final int capacity = 4;
         final int expected = 2;
 
-        int counter = 0;
-
-        if (arr.length != capacity) {
-            throw new IllegalArgumentException("Only 4 parameters");
+        if (bools.size() != capacity) {
+            throw new IllegalArgumentException("Only " + capacity + " parameters");
         }
 
-        for (boolean b : arr) {
-            if (b) counter++;
-        }
-
-        return counter == expected;
+        return bools.stream().filter(b -> b).count() == expected;
     }
 }
