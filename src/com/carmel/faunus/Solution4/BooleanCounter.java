@@ -1,6 +1,5 @@
 package com.carmel.faunus.Solution4;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class BooleanCounter {
